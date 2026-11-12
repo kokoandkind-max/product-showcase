@@ -1,28 +1,1239 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
 <head>
-<meta charset="UTF-8">
-<title>My Product Showcase</title>
-<style>
-body { font-family: sans-serif; margin: 40px; line-height: 1.6; color: #333; }
-header { border-bottom: 2px solid #eee; padding-bottom: 20px; margin-bottom: 40px; }
-h1 { margin: 0; color: #111; }
-.product-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 20px; }
-.product-card { border: 1px solid #ddd; padding: 15px; border-radius: 4px; }
-</style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ABIHA LIBAS | Couture & Timeless Indian Drapery</title>
+
+  <!-- Google Fonts: Cormorant Garamond (Editorial Serif) & Plus Jakarta Sans (Clean Modern Sans) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=Plus+Jakarta+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" />
+
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Tailwind Custom Configuration -->
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            ivory: '#FAF8F5',
+            cream: '#F3EFEA',
+            obsidian: '#1A1816',
+            charcoal: '#2D2926',
+            gold: '#B8924A',
+            goldDark: '#9A7634',
+            taupe: '#E6DFD5',
+            muted: '#6E665F',
+          },
+          fontFamily: {
+            serif: ['"Cormorant Garamond"', 'Georgia', 'serif'],
+            sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+          },
+          letterSpacing: {
+            widestPlus: '0.22em',
+          }
+        }
+      }
+    };
+  </script>
+
+  <style>
+    /* Subtle custom scrollbar & editorial refinements */
+    body {
+      background-color: #FAF8F5;
+      color: #1A1816;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      overflow-x: hidden;
+    }
+
+    /* Intricate SVG Jaali / Paisley-inspired Luxury Motif Overlay */
+    .heritage-pattern {
+      background-image: radial-gradient(circle at 25% 25%, rgba(184, 146, 74, 0.14) 0%, transparent 50%),
+                        radial-gradient(circle at 75% 75%, rgba(184, 146, 74, 0.12) 0%, transparent 50%);
+    }
+
+    /* Custom subtle gold shimmer */
+    .gold-shimmer {
+      background: linear-gradient(120deg, #B8924A 0%, #D9BC7E 50%, #B8924A 100%);
+      background-size: 200% auto;
+      transition: background-position 0.5s ease;
+    }
+    .gold-shimmer:hover {
+      background-position: right center;
+    }
+
+    /* Product Image Zoom & Card Reveal */
+    .product-card:hover .product-visual {
+      transform: scale(1.06);
+    }
+    .product-visual {
+      transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    /* Custom Scrollbar */
+    ::-webkit-scrollbar {
+      width: 6px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #FAF8F5;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #D4C8B8;
+      border-radius: 9999px;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: #B8924A;
+    }
+  </style>
 </head>
-<body>
-<header>
-<h1>ABIHA LIBAS</h1>
-</header>
-<main>
-<div class="product-grid">
-<div class="product-card">
-<h2>Product Name</h2>
-<p>Brief description of the item goes here.</p>
-<p><strong>Price: &inr;10.00</strong></p>
-</div>
-</div>
-</main>
+<body class="bg-ivory text-obsidian antialiased selection:bg-gold selection:text-white">
+
+  <!-- ===================================================================== -->
+  <!-- TOP ANNOUNCEMENT BAR                                                  -->
+  <!-- ===================================================================== -->
+  <div class="bg-obsidian text-ivory text-[11px] sm:text-xs tracking-widestPlus uppercase py-2.5 px-4 text-center border-b border-gold/25">
+    <p class="truncate">Complimentary Insured Shipping Across India &bull; New Festive Couture &rsquo;26</p>
+  </div>
+
+  <!-- ===================================================================== -->
+  <!-- STICKY GLASSMORPHIC NAVIGATION HEADER                                 -->
+  <!-- ===================================================================== -->
+  <header class="sticky top-0 z-40 bg-ivory/85 backdrop-blur-md border-b border-taupe transition-all duration-300">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-10 h-20 flex items-center justify-between gap-4">
+
+      <!-- Mobile Menu Trigger -->
+      <button id="mobile-menu-btn" aria-label="Open Navigation" class="lg:hidden p-2 text-obsidian hover:text-gold transition">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25H12" />
+        </svg>
+      </button>
+
+      <!-- Left Navigation Links (Desktop) -->
+      <nav class="hidden lg:flex items-center space-x-7 text-xs uppercase tracking-[0.18em] font-medium text-charcoal">
+        <a href="#collections" class="hover:text-gold transition py-1">Collections</a>
+        <a href="#collections" data-nav-filter="Bridal" class="nav-filter-link hover:text-gold transition py-1">Bridal</a>
+        <a href="#collections" data-nav-filter="Festive" class="nav-filter-link hover:text-gold transition py-1">Festive</a>
+        <a href="#collections" data-nav-filter="Everyday Luxe" class="nav-filter-link hover:text-gold transition py-1">Ready-to-Wear</a>
+        <a href="#atelier" class="hover:text-gold transition py-1">Atelier</a>
+      </nav>
+
+      <!-- Brand Wordmark (Center) -->
+      <a href="#" class="text-center flex flex-col items-center group">
+        <span class="font-serif text-2xl sm:text-3xl tracking-[0.24em] font-semibold text-obsidian group-hover:text-gold transition">
+          ABIHA LIBAS
+        </span>
+        <span class="text-[9px] uppercase tracking-[0.35em] text-gold mt-0.5 hidden sm:block">
+          Haute Couture &bull; Est. India
+        </span>
+      </a>
+
+      <!-- Right Utility Actions: Search, Wishlist, Shopping Bag -->
+      <div class="flex items-center space-x-2 sm:space-x-4">
+        <!-- Search Button -->
+        <button id="search-toggle-btn" aria-label="Search Catalogue" class="p-2.5 text-obsidian hover:text-gold transition rounded-full hover:bg-cream">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z" />
+          </svg>
+        </button>
+
+        <!-- Wishlist Counter Button -->
+        <button id="wishlist-drawer-btn" aria-label="View Wishlist" class="relative p-2.5 text-obsidian hover:text-gold transition rounded-full hover:bg-cream">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12Z" />
+          </svg>
+          <span id="wishlist-count" class="absolute top-1 right-1 bg-obsidian text-ivory text-[10px] font-medium w-4 h-4 rounded-full flex items-center justify-center">0</span>
+        </button>
+
+        <!-- Shopping Bag Counter Button -->
+        <button id="cart-drawer-btn" aria-label="Open Shopping Bag" class="relative p-2.5 text-obsidian hover:text-gold transition rounded-full hover:bg-cream flex items-center gap-1.5">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 10.5V6a3.75 3.75 0 1 0-7.5 0v4.5m11.356-1.993 1.263 12c.07.665-.45 1.243-1.119 1.243H4.25a1.125 1.125 0 0 1-1.12-1.243l1.264-12A1.125 1.125 0 0 1 5.513 7.5h12.974c.576 0 1.059.435 1.119 1.007Z" />
+          </svg>
+          <span id="cart-count" class="bg-gold text-white text-[10px] font-semibold w-4 h-4 rounded-full flex items-center justify-center">0</span>
+        </button>
+      </div>
+    </div>
+
+    <!-- Expandable Search Bar -->
+    <div id="search-bar-panel" class="hidden border-t border-taupe bg-ivory/95 px-4 sm:px-6 lg:px-10 py-4">
+      <div class="max-w-3xl mx-auto flex items-center gap-3">
+        <svg class="w-5 h-5 text-gold shrink-0" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z" />
+        </svg>
+        <input id="search-input" type="text" placeholder="Search Zardosi lehengas, Banarasi sarees, Chikankari..." class="w-full bg-transparent text-sm text-obsidian placeholder-muted focus:outline-none" />
+        <button id="clear-search-btn" class="text-xs uppercase tracking-widest text-muted hover:text-obsidian">Clear</button>
+      </div>
+    </div>
+
+    <!-- Mobile Navigation Drawer -->
+    <div id="mobile-nav-drawer" class="hidden lg:hidden bg-ivory border-t border-taupe px-6 py-6 space-y-4">
+      <a href="#collections" class="block text-xs uppercase tracking-[0.2em] py-2 border-b border-taupe/60">Collections</a>
+      <a href="#collections" data-nav-filter="Bridal" class="nav-filter-link block text-xs uppercase tracking-[0.2em] py-2 border-b border-taupe/60">Bridal Couture</a>
+      <a href="#collections" data-nav-filter="Festive" class="nav-filter-link block text-xs uppercase tracking-[0.2em] py-2 border-b border-taupe/60">Festive Edit</a>
+      <a href="#collections" data-nav-filter="Everyday Luxe" class="nav-filter-link block text-xs uppercase tracking-[0.2em] py-2 border-b border-taupe/60">Ready-to-Wear</a>
+      <a href="#atelier" class="block text-xs uppercase tracking-[0.2em] py-2">Heritage Atelier</a>
+    </div>
+  </header>
+
+  <!-- ===================================================================== -->
+  <!-- EDITORIAL HERO BANNER                                                 -->
+  <!-- ===================================================================== -->
+  <section class="relative overflow-hidden bg-obsidian text-ivory min-h-[84vh] flex items-center">
+    <!-- Rich Multi-layered Luxury Textile & Warm Gold Gradient Backdrop -->
+    <div class="absolute inset-0 bg-gradient-to-br from-[#171311] via-[#2B2019] to-[#14110F]"></div>
+    <div class="absolute inset-0 heritage-pattern opacity-90"></div>
+
+    <!-- Decorative Geometric Mughal Arch & Gold Thread Linework SVG -->
+    <svg class="absolute right-0 top-1/2 -translate-y-1/2 h-[115%] w-auto text-gold/15 pointer-events-none hidden md:block" viewBox="0 0 600 800" fill="none">
+      <path d="M300 40 C440 120, 540 250, 540 420 L540 760 L60 760 L60 420 C60 250, 160 120, 300 40 Z" stroke="currentColor" stroke-width="1.5" />
+      <path d="M300 85 C420 155, 505 270, 505 425 L505 730 L95 730 L95 425 C95 270, 180 155, 300 85 Z" stroke="currentColor" stroke-width="0.75" stroke-dasharray="6 6" />
+      <circle cx="300" cy="410" r="145" stroke="currentColor" stroke-width="1" />
+      <circle cx="300" cy="410" r="105" stroke="currentColor" stroke-width="0.6" />
+    </svg>
+
+    <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-10 py-20 lg:py-28 w-full grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+      <!-- Editorial Copy -->
+      <div class="lg:col-span-7 space-y-7">
+        <div class="inline-flex items-center gap-3 px-4 py-1.5 rounded-full border border-gold/40 bg-gold/10 text-gold text-[11px] uppercase tracking-widestPlus">
+          <span class="w-1.5 h-1.5 rounded-full bg-gold"></span>
+          <span>Autumn / Winter Couture &rsquo;26</span>
+        </div>
+
+        <h1 class="font-serif text-5xl sm:text-6xl lg:text-7xl font-normal leading-[1.06] tracking-tight text-ivory">
+          The Art of <br />
+          <span class="italic text-gold font-normal">Timeless Drapery</span>
+        </h1>
+
+        <p class="text-taupe/85 text-base sm:text-lg font-light max-w-xl leading-relaxed">
+          Handwoven Varanasi silks, heirloom Zardosi needlework, and fluid contemporary silhouettes crafted for modern celebrations across India and beyond.
+        </p>
+
+        <!-- Dual CTAs -->
+        <div class="pt-3 flex flex-wrap items-center gap-4">
+          <a href="#collections" class="gold-shimmer text-obsidian font-medium text-xs uppercase tracking-[0.2em] px-8 py-4 rounded-full shadow-lg shadow-black/30 transition transform hover:-translate-y-0.5">
+            Explore Collection
+          </a>
+          <button id="open-styling-modal-btn" class="border border-taupe/45 hover:border-gold text-ivory hover:text-gold text-xs uppercase tracking-[0.2em] px-8 py-4 rounded-full transition backdrop-blur-sm">
+            Book Private Styling
+          </button>
+        </div>
+
+        <!-- Subtle Editorial Metrics -->
+        <div class="pt-8 border-t border-taupe/15 grid grid-cols-3 gap-6 max-w-lg">
+          <div>
+            <p class="font-serif text-2xl sm:text-3xl text-gold">100%</p>
+            <p class="text-[11px] uppercase tracking-wider text-taupe/70 mt-1">Handloom Pure Silks</p>
+          </div>
+          <div>
+            <p class="font-serif text-2xl sm:text-3xl text-gold">480+ Hrs</p>
+            <p class="text-[11px] uppercase tracking-wider text-taupe/70 mt-1">Artisan Embroidery</p>
+          </div>
+          <div>
+            <p class="font-serif text-2xl sm:text-3xl text-gold">Bespoke</p>
+            <p class="text-[11px] uppercase tracking-wider text-taupe/70 mt-1">Custom Atelier Fit</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Editorial Visual Frame (Artisanal Couture Lookbook Card) -->
+      <div class="lg:col-span-5 flex justify-center lg:justify-end">
+        <div class="relative w-full max-w-md rounded-2xl overflow-hidden border border-gold/30 shadow-2xl bg-[#221B17] p-4">
+          <div class="relative aspect-[3/4] rounded-xl overflow-hidden bg-gradient-to-b from-[#4A2528] via-[#2F181B] to-[#1A1211] flex flex-col justify-between p-7">
+            <!-- Intricate Textile Artistry SVG Illustration -->
+            <svg class="absolute inset-0 w-full h-full opacity-35" viewBox="0 0 400 540" fill="none">
+              <defs>
+                <pattern id="brocade" x="0" y="0" width="48" height="48" patternUnits="userSpaceOnUse">
+                  <path d="M24 4 L44 24 L24 44 L4 24 Z" stroke="#D9BC7E" stroke-width="0.7" fill="none"/>
+                  <circle cx="24" cy="24" r="4" stroke="#D9BC7E" stroke-width="0.7" fill="none"/>
+                </pattern>
+              </defs>
+              <rect width="400" height="540" fill="url(#brocade)" />
+            </svg>
+
+            <div class="relative z-10 flex justify-between items-start">
+              <span class="text-[10px] uppercase tracking-[0.25em] text-gold bg-obsidian/70 backdrop-blur-md px-3 py-1 rounded-full border border-gold/30">
+                Look 01 &bull; Signature
+              </span>
+              <span class="font-serif italic text-gold text-lg">Noor-e-Zardosi</span>
+            </div>
+
+            <!-- Center Couture Silhouette Emblem -->
+            <div class="relative z-10 my-auto text-center px-4">
+              <div class="w-24 h-24 mx-auto mb-5 rounded-full border border-gold/50 flex items-center justify-center bg-obsidian/40 backdrop-blur-sm">
+                <svg class="w-11 h-11 text-gold" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.2">
+                  <path d="M24 6C28 14 36 18 40 24C36 30 28 34 24 42C20 34 12 30 8 24C12 18 20 14 24 6Z" />
+                  <circle cx="24" cy="24" r="5" />
+                </svg>
+              </div>
+              <p class="font-serif text-2xl sm:text-3xl text-ivory tracking-wide">Crimson &amp; Antique Gold</p>
+              <p class="text-xs text-taupe/75 mt-2 tracking-widest uppercase">Hand-loomed Mulberry Silk Lehenga</p>
+            </div>
+
+            <div class="relative z-10 flex items-center justify-between pt-4 border-t border-gold/25 text-xs">
+              <span class="text-taupe/80">Starting at &#8377;48,500</span>
+              <a href="#collections" class="text-gold hover:underline uppercase tracking-widest text-[11px]">Discover &rarr;</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================================================================== -->
+  <!-- CURATED LUXURY COLLECTION & CATEGORY FILTER                           -->
+  <!-- ===================================================================== -->
+  <section id="collections" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-10 py-20 lg:py-28">
+    <!-- Section Heading -->
+    <div class="text-center max-w-2xl mx-auto mb-12">
+      <p class="text-xs uppercase tracking-widestPlus text-gold font-medium mb-3">Curated Edit &rsquo;26</p>
+      <h2 class="font-serif text-4xl sm:text-5xl text-obsidian font-normal">Couture &amp; Heritage Ensembles</h2>
+      <p class="text-muted text-sm sm:text-base mt-3 leading-relaxed">
+        Each silhouette is individually crafted in small batches by master weavers and karigars, celebrating India&rsquo;s timeless textile legacy.
+      </p>
+    </div>
+
+    <!-- Category Filter Pills -->
+    <div id="category-tabs" class="flex flex-wrap items-center justify-center gap-2.5 sm:gap-3 mb-12">
+      <button data-category="All" class="filter-btn active px-5 py-2.5 rounded-full text-xs uppercase tracking-[0.18em] transition bg-obsidian text-ivory border border-obsidian">
+        All Creations
+      </button>
+      <button data-category="Festive" class="filter-btn px-5 py-2.5 rounded-full text-xs uppercase tracking-[0.18em] transition bg-transparent text-charcoal border border-taupe hover:border-gold">
+        Festive
+      </button>
+      <button data-category="Bridal" class="filter-btn px-5 py-2.5 rounded-full text-xs uppercase tracking-[0.18em] transition bg-transparent text-charcoal border border-taupe hover:border-gold">
+        Bridal
+      </button>
+      <button data-category="Silk Sarees" class="filter-btn px-5 py-2.5 rounded-full text-xs uppercase tracking-[0.18em] transition bg-transparent text-charcoal border border-taupe hover:border-gold">
+        Silk Sarees
+      </button>
+      <button data-category="Everyday Luxe" class="filter-btn px-5 py-2.5 rounded-full text-xs uppercase tracking-[0.18em] transition bg-transparent text-charcoal border border-taupe hover:border-gold">
+        Everyday Luxe
+      </button>
+    </div>
+
+    <!-- Interactive 8-Product Luxury Grid -->
+    <div id="product-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-x-7 gap-y-12">
+      <!-- Rendered dynamically by JavaScript for crisp interactivity -->
+    </div>
+
+    <!-- Empty Search / Filter Fallback -->
+    <div id="empty-state" class="hidden text-center py-16 bg-cream/60 rounded-2xl border border-taupe">
+      <p class="font-serif text-2xl text-obsidian">No ensembles matched your selection.</p>
+      <p class="text-sm text-muted mt-1">Explore our full couture archive by resetting your filters.</p>
+      <button id="reset-filters-btn" class="mt-5 px-6 py-2.5 rounded-full bg-obsidian text-ivory text-xs uppercase tracking-widest hover:bg-gold transition">
+        View All Pieces
+      </button>
+    </div>
+  </section>
+
+  <!-- ===================================================================== -->
+  <!-- BRAND STORY & CRAFTSMANSHIP (EDITORIAL SPLIT LAYOUT)                  -->
+  <!-- ===================================================================== -->
+  <section id="atelier" class="bg-cream border-y border-taupe py-20 lg:py-28">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-10 grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
+
+      <!-- Left Visual Atelier Card -->
+      <div class="lg:col-span-6">
+        <div class="relative rounded-2xl overflow-hidden border border-taupe bg-obsidian p-8 sm:p-12 text-ivory shadow-xl">
+          <div class="absolute inset-0 heritage-pattern opacity-70"></div>
+          <div class="relative z-10 space-y-6">
+            <span class="inline-block text-[11px] uppercase tracking-widestPlus text-gold border-b border-gold/40 pb-1">
+              The Abiha Libas Atelier
+            </span>
+            <h3 class="font-serif text-3xl sm:text-4xl leading-snug font-normal">
+              &ldquo;True luxury lies in the patient rhythm of the handloom and the quiet shimmer of pure zari.&rdquo;
+            </h3>
+            <p class="text-taupe/80 text-sm leading-relaxed font-light">
+              Working directly with third-generation weaver clusters in Varanasi, Chanderi, and Lucknow, ABIHA LIBAS preserves dying couture techniques—translating archival royal motifs into weightless modern heirlooms.
+            </p>
+
+            <!-- Three Craft Pillars -->
+            <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 pt-4 border-t border-taupe/20">
+              <div class="bg-white/5 rounded-xl p-4 border border-white/10">
+                <p class="font-serif text-gold text-xl">Zardosi &amp; Dabka</p>
+                <p class="text-xs text-taupe/75 mt-1">Metallic gold wire hand-couched on pure silk.</p>
+              </div>
+              <div class="bg-white/5 rounded-xl p-4 border border-white/10">
+                <p class="font-serif text-gold text-xl">Katan Weaves</p>
+                <p class="text-xs text-taupe/75 mt-1">Twisted mulberry filaments for fluid drape.</p>
+              </div>
+              <div class="bg-white/5 rounded-xl p-4 border border-white/10">
+                <p class="font-serif text-gold text-xl">Custom Fit</p>
+                <p class="text-xs text-taupe/75 mt-1">Tailored to your exact measurements.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right Editorial Story -->
+      <div class="lg:col-span-6 space-y-6">
+        <p class="text-xs uppercase tracking-widestPlus text-gold font-medium">Heritage &amp; Philosophy</p>
+        <h2 class="font-serif text-4xl sm:text-5xl text-obsidian leading-tight font-normal">
+          Woven with Reverence, Tailored for Today
+        </h2>
+        <p class="text-charcoal/85 text-base leading-relaxed">
+          Founded with a devotion to slow, intentional Indian couture, <strong>ABIHA LIBAS</strong> bridges the grandeur of royal darbars with the ease of contemporary dressing. Every garment undergoes an 18-stage quality and hand-finishing ritual before leaving our atelier.
+        </p>
+        <p class="text-muted text-sm leading-relaxed">
+          Whether you are selecting a bridal heirloom lehenga or an effortless mulmul kurta for intimate gatherings, our pieces are designed to be cherished and passed down across generations.
+        </p>
+        <div class="pt-3 flex flex-wrap gap-4">
+          <button id="atelier-consult-btn" class="px-7 py-3.5 rounded-full bg-obsidian text-ivory text-xs uppercase tracking-[0.2em] hover:bg-gold transition">
+            Schedule Virtual Atelier Visit
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================================================================== -->
+  <!-- LUXURY FOOTER                                                         -->
+  <!-- ===================================================================== -->
+  <footer class="bg-obsidian text-ivory pt-20 pb-12">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-10">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-12 pb-16 border-b border-taupe/15">
+
+        <!-- Brand & Newsletter -->
+        <div class="lg:col-span-5 space-y-5">
+          <a href="#" class="font-serif text-3xl tracking-[0.24em] text-ivory block">ABIHA LIBAS</a>
+          <p class="text-taupe/70 text-sm leading-relaxed max-w-md">
+            Subscribe to receive private invitations to trunk shows, limited-edition bridal previews, and stories from our craft ateliers.
+          </p>
+          <form id="newsletter-form" class="flex flex-col sm:flex-row gap-3 max-w-md pt-1">
+            <input type="email" required placeholder="Enter your email address" class="w-full px-4 py-3 rounded-full bg-white/5 border border-taupe/25 text-sm text-ivory placeholder-taupe/45 focus:outline-none focus:border-gold" />
+            <button type="submit" class="gold-shimmer text-obsidian font-semibold text-xs uppercase tracking-[0.18em] px-6 py-3 rounded-full shrink-0">
+              Join
+            </button>
+          </form>
+        </div>
+
+        <!-- Collections Links -->
+        <div class="lg:col-span-2 space-y-3">
+          <h4 class="text-xs uppercase tracking-[0.2em] text-gold font-medium">Collections</h4>
+          <ul class="space-y-2.5 text-sm text-taupe/75">
+            <li><a href="#collections" class="hover:text-gold transition">Bridal Couture</a></li>
+            <li><a href="#collections" class="hover:text-gold transition">Festive Lehengas</a></li>
+            <li><a href="#collections" class="hover:text-gold transition">Banarasi Silk Sarees</a></li>
+            <li><a href="#collections" class="hover:text-gold transition">Anarkalis &amp; Ghararas</a></li>
+            <li><a href="#collections" class="hover:text-gold transition">Pashmina &amp; Shawls</a></li>
+          </ul>
+        </div>
+
+        <!-- Client Care -->
+        <div class="lg:col-span-2 space-y-3">
+          <h4 class="text-xs uppercase tracking-[0.2em] text-gold font-medium">Client Care</h4>
+          <ul class="space-y-2.5 text-sm text-taupe/75">
+            <li><button type="button" class="footer-info-btn hover:text-gold transition text-left" data-topic="Bespoke Sizing Guide">Bespoke Sizing Guide</button></li>
+            <li><button type="button" class="footer-info-btn hover:text-gold transition text-left" data-topic="Insured Pan-India Delivery">Insured Shipping</button></li>
+            <li><button type="button" class="footer-info-btn hover:text-gold transition text-left" data-topic="Silk & Zari Care">Garment Care</button></li>
+            <li><button type="button" class="footer-info-btn hover:text-gold transition text-left" data-topic="Private Appointments">Private Appointments</button></li>
+          </ul>
+        </div>
+
+        <!-- Flagship Atelier Address -->
+        <div class="lg:col-span-3 space-y-3">
+          <h4 class="text-xs uppercase tracking-[0.2em] text-gold font-medium">Flagship Atelier</h4>
+          <p class="text-sm text-taupe/75 leading-relaxed">
+            14, Mehrauli Heritage Lane,<br />
+            Near Qutub Minar, New Delhi 110030, India
+          </p>
+          <p class="text-xs text-taupe/60">
+            Tue &ndash; Sun: 11:00 AM &ndash; 7:30 PM IST<br />
+            Concierge: +91 11 4108 9240
+          </p>
+          <div class="flex items-center space-x-4 pt-2 text-taupe/70">
+            <a href="#collections" aria-label="Instagram" class="hover:text-gold transition text-xs uppercase tracking-widest">Instagram</a>
+            <span>&bull;</span>
+            <a href="#collections" aria-label="Pinterest" class="hover:text-gold transition text-xs uppercase tracking-widest">Pinterest</a>
+            <span>&bull;</span>
+            <a href="#atelier" aria-label="WhatsApp Concierge" class="hover:text-gold transition text-xs uppercase tracking-widest">Concierge</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Bottom Copyright -->
+      <div class="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-taupe/55">
+        <p>&copy; 2026 ABIHA LIBAS Couture Pvt. Ltd. All Rights Reserved.</p>
+        <p>Handcrafted in India &bull; All Prices Inclusive of GST (&#8377; INR)</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ===================================================================== -->
+  <!-- QUICK-VIEW PRODUCT MODAL                                              -->
+  <!-- ===================================================================== -->
+  <div id="quickview-modal" class="fixed inset-0 z-50 hidden items-center justify-center p-4 bg-obsidian/70 backdrop-blur-sm">
+    <div class="bg-ivory border border-taupe rounded-2xl max-w-3xl w-full overflow-hidden shadow-2xl grid grid-cols-1 md:grid-cols-12 relative animate-[fadeIn_0.25s_ease-out]">
+      <!-- Close Button -->
+      <button id="close-quickview-btn" aria-label="Close Quick View" class="absolute top-4 right-4 z-20 w-9 h-9 rounded-full bg-ivory/90 border border-taupe flex items-center justify-center text-obsidian hover:border-gold hover:text-gold transition">
+        &times;
+      </button>
+
+      <!-- Visual Preview -->
+      <div id="qv-visual-container" class="md:col-span-5 min-h-[260px] md:min-h-[440px] p-6 flex flex-col justify-between relative">
+        <!-- Populated dynamically -->
+      </div>
+
+      <!-- Details & Size Selection -->
+      <div class="md:col-span-7 p-6 sm:p-8 flex flex-col justify-between space-y-5">
+        <div>
+          <span id="qv-category" class="text-[11px] uppercase tracking-widestPlus text-gold font-medium"></span>
+          <h3 id="qv-title" class="font-serif text-3xl text-obsidian mt-1"></h3>
+          <p id="qv-price" class="text-xl font-medium text-charcoal mt-2"></p>
+          <p id="qv-desc" class="text-sm text-muted leading-relaxed mt-4"></p>
+
+          <!-- Fabric & Craft Spec -->
+          <div class="mt-4 p-3.5 rounded-xl bg-cream border border-taupe text-xs space-y-1">
+            <p><span class="font-semibold text-obsidian">Textile &amp; Weave:</span> <span id="qv-fabric" class="text-charcoal"></span></p>
+            <p><span class="font-semibold text-obsidian">Dispatch:</span> <span class="text-charcoal">Made to order &bull; Ships insured in 7&ndash;10 days</span></p>
+          </div>
+
+          <!-- Size Selector -->
+          <div class="mt-5">
+            <div class="flex justify-between items-center mb-2">
+              <span class="text-xs uppercase tracking-widest font-medium text-obsidian">Select Size</span>
+              <span class="text-[11px] text-gold">Custom Atelier Tailoring Available</span>
+            </div>
+            <div id="qv-sizes" class="flex flex-wrap gap-2">
+              <!-- Size buttons generated dynamically -->
+            </div>
+          </div>
+        </div>
+
+        <div class="pt-4 border-t border-taupe flex items-center gap-3">
+          <button id="qv-add-to-bag-btn" class="flex-1 py-3.5 px-6 rounded-full bg-obsidian text-ivory text-xs uppercase tracking-[0.2em] hover:bg-gold transition font-medium">
+            Add to Shopping Bag
+          </button>
+          <button id="qv-wishlist-btn" aria-label="Save to Wishlist" class="p-3.5 rounded-full border border-taupe hover:border-gold text-obsidian hover:text-gold transition">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12Z" />
+            </svg>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===================================================================== -->
+  <!-- PRIVATE STYLING APPOINTMENT MODAL                                     -->
+  <!-- ===================================================================== -->
+  <div id="styling-modal" class="fixed inset-0 z-50 hidden items-center justify-center p-4 bg-obsidian/70 backdrop-blur-sm">
+    <div class="bg-ivory border border-taupe rounded-2xl max-w-lg w-full p-6 sm:p-8 shadow-2xl relative">
+      <button id="close-styling-btn" aria-label="Close Appointment Modal" class="absolute top-4 right-4 w-9 h-9 rounded-full bg-cream border border-taupe flex items-center justify-center text-obsidian hover:border-gold">
+        &times;
+      </button>
+      <p class="text-[11px] uppercase tracking-widestPlus text-gold">Bespoke Concierge</p>
+      <h3 class="font-serif text-3xl text-obsidian mt-1">Book Private Styling</h3>
+      <p class="text-sm text-muted mt-2">
+        Connect one-on-one with our senior bridal &amp; festive stylists in New Delhi or via private video consultation.
+      </p>
+
+      <form id="styling-form" class="mt-6 space-y-4">
+        <div>
+          <label class="block text-xs uppercase tracking-wider text-charcoal mb-1">Full Name</label>
+          <input type="text" required placeholder="e.g., Ayesha Siddiqui" class="w-full px-4 py-2.5 rounded-xl bg-cream border border-taupe text-sm focus:outline-none focus:border-gold" />
+        </div>
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          <div>
+            <label class="block text-xs uppercase tracking-wider text-charcoal mb-1">Phone / WhatsApp</label>
+            <input type="tel" required placeholder="+91 98765 43210" class="w-full px-4 py-2.5 rounded-xl bg-cream border border-taupe text-sm focus:outline-none focus:border-gold" />
+          </div>
+          <div>
+            <label class="block text-xs uppercase tracking-wider text-charcoal mb-1">Consultation Mode</label>
+            <select class="w-full px-4 py-2.5 rounded-xl bg-cream border border-taupe text-sm focus:outline-none focus:border-gold">
+              <option>New Delhi Flagship Atelier</option>
+              <option>Virtual Video Styling</option>
+            </select>
+          </div>
+        </div>
+        <div>
+          <label class="block text-xs uppercase tracking-wider text-charcoal mb-1">Occasion &amp; Preferences</label>
+          <textarea rows="2" placeholder="Bridal trousseau, festive wedding guest, custom measurements..." class="w-full px-4 py-2.5 rounded-xl bg-cream border border-taupe text-sm focus:outline-none focus:border-gold"></textarea>
+        </div>
+        <button type="submit" class="w-full py-3.5 rounded-full bg-obsidian text-ivory text-xs uppercase tracking-[0.2em] hover:bg-gold transition font-medium">
+          Request Private Appointment
+        </button>
+      </form>
+    </div>
+  </div>
+
+  <!-- ===================================================================== -->
+  <!-- SLIDE-OUT SHOPPING BAG DRAWER                                         -->
+  <!-- ===================================================================== -->
+  <div id="cart-drawer-overlay" class="fixed inset-0 z-50 hidden bg-obsidian/60 backdrop-blur-xs">
+    <aside class="ml-auto w-full max-w-md bg-ivory h-full shadow-2xl border-l border-taupe flex flex-col justify-between">
+      <!-- Drawer Header -->
+      <div class="p-6 border-b border-taupe flex items-center justify-between">
+        <div>
+          <h3 class="font-serif text-2xl text-obsidian">Shopping Bag</h3>
+          <p id="cart-drawer-subtitle" class="text-xs text-muted">0 curated pieces selected</p>
+        </div>
+        <button id="close-cart-btn" aria-label="Close Shopping Bag" class="w-9 h-9 rounded-full border border-taupe flex items-center justify-center text-obsidian hover:border-gold">
+          &times;
+        </button>
+      </div>
+
+      <!-- Bag Items List -->
+      <div id="cart-items-container" class="flex-1 overflow-y-auto p-6 space-y-5">
+        <!-- Rendered dynamically -->
+      </div>
+
+      <!-- Bag Footer & Subtotal -->
+      <div class="p-6 border-t border-taupe bg-cream space-y-4">
+        <div class="space-y-1.5 text-sm">
+          <div class="flex justify-between text-muted">
+            <span>Insured Courier (India)</span>
+            <span class="text-obsidian font-medium">Complimentary</span>
+          </div>
+          <div class="flex justify-between text-base font-semibold text-obsidian pt-2 border-t border-taupe">
+            <span>Estimated Total (INR)</span>
+            <span id="cart-subtotal">&#8377;0</span>
+          </div>
+        </div>
+        <button id="checkout-btn" class="w-full py-3.5 rounded-full bg-obsidian text-ivory text-xs uppercase tracking-[0.2em] hover:bg-gold transition font-medium">
+          Proceed to Couture Checkout
+        </button>
+      </div>
+    </aside>
+  </div>
+
+  <!-- ===================================================================== -->
+  <!-- SLIDE-OUT WISHLIST DRAWER                                             -->
+  <!-- ===================================================================== -->
+  <div id="wishlist-drawer-overlay" class="fixed inset-0 z-50 hidden bg-obsidian/60 backdrop-blur-xs">
+    <aside class="ml-auto w-full max-w-md bg-ivory h-full shadow-2xl border-l border-taupe flex flex-col justify-between">
+      <div class="p-6 border-b border-taupe flex items-center justify-between">
+        <div>
+          <h3 class="font-serif text-2xl text-obsidian">Saved Wishlist</h3>
+          <p class="text-xs text-muted">Your personal ABIHA LIBAS lookbook</p>
+        </div>
+        <button id="close-wishlist-btn" aria-label="Close Wishlist" class="w-9 h-9 rounded-full border border-taupe flex items-center justify-center text-obsidian hover:border-gold">
+          &times;
+        </button>
+      </div>
+      <div id="wishlist-items-container" class="flex-1 overflow-y-auto p-6 space-y-4">
+        <!-- Rendered dynamically -->
+      </div>
+    </aside>
+  </div>
+
+  <!-- ===================================================================== -->
+  <!-- ELEGANT TOAST NOTIFICATION CONTAINER                                 -->
+  <!-- ===================================================================== -->
+  <div id="toast-container" class="fixed bottom-6 right-6 z-50 flex flex-col gap-2.5 pointer-events-none"></div>
+
+  <!-- ===================================================================== -->
+  <!-- APPLICATION LOGIC & INTERACTIVE STATE                                 -->
+  <!-- ===================================================================== -->
+  <script>
+    // Curated 8-Product Luxury Catalogue for ABIHA LIBAS
+    const PRODUCTS = [
+      {
+        id: 'al-01',
+        name: 'Noor-e-Zardosi Silk Lehenga',
+        category: 'Bridal',
+        price: 68500,
+        fabric: 'Pure Mulberry Raw Silk with Antique Gold Zardosi & Resham',
+        badge: 'Bridal Heirloom',
+        palette: 'from-[#5B2328] via-[#3B1519] to-[#1E0C0E]',
+        accent: '#D9BC7E',
+        motif: 'arch',
+        description: 'Hand-embroidered over 420 hours by master karigars, featuring intricate Mughal floral bootis, scalloped dupatta borders, and a structured raw silk blouse.'
+      },
+      {
+        id: 'al-02',
+        name: 'Varanasi Katan Kadwa Saree',
+        category: 'Silk Sarees',
+        price: 34000,
+        fabric: '100% Pure Katan Silk with Real Silver-Gold Tested Zari',
+        badge: 'Handloom Mark',
+        palette: 'from-[#1F3A36] via-[#132623] to-[#0B1715]',
+        accent: '#E2C383',
+        motif: 'lotus',
+        description: 'Woven on traditional pit looms in Varanasi using the labor-intensive Kadwa brocade technique, offering an opulent fluid drape and timeless heirloom pallu.'
+      },
+      {
+        id: 'al-03',
+        name: 'Chanderi Tissue Gold Anarkali',
+        category: 'Festive',
+        price: 26500,
+        fabric: 'Handwoven Chanderi Silk Tissue with Gota Patti',
+        badge: 'Festive ’26',
+        palette: 'from-[#7A5934] via-[#4D361E] to-[#271B0E]',
+        accent: '#F2DBA6',
+        motif: 'sunburst',
+        description: 'A luminous 24-kali gossamer Chanderi tissue anarkali finished with delicate Marodi and Gota Patti work, paired with churidar trousers and an organza odhni.'
+      },
+      {
+        id: 'al-04',
+        name: 'Shahi Velvet Sherwani Set',
+        category: 'Bridal',
+        price: 54000,
+        fabric: 'Micro-Silk Velvet with Tilla & Dabka Handwork',
+        badge: 'Royal Couture',
+        palette: 'from-[#1D2436] via-[#121724] to-[#0A0D14]',
+        accent: '#D6B676',
+        motif: 'arch',
+        description: 'Tailored in midnight sapphire silk velvet with hand-beaten antique gold buttons, tonal tilla embroidery along the bandhgala collar, and raw silk aligarhi trousers.'
+      },
+      {
+        id: 'al-05',
+        name: 'Zari Organza Embroidered Dupatta',
+        category: 'Festive',
+        price: 14800,
+        fabric: 'Pure Silk Organza with Cutwork & Scalloped Zari',
+        badge: 'Bestseller',
+        palette: 'from-[#6B4E4B] via-[#473230] to-[#241817]',
+        accent: '#E8C88B',
+        motif: 'lotus',
+        description: 'Feather-light rosewood silk organza framed with hand-cut scalloped zari borders and scattered sequin stars—designed to elevate any classic silk ensemble.'
+      },
+      {
+        id: 'al-06',
+        name: 'Begum Raw Silk Gharara Set',
+        category: 'Festive',
+        price: 38900,
+        fabric: 'Pure Tusser & Mulberry Silk with Kinari Lace',
+        badge: 'Limited Edition',
+        palette: 'from-[#5A2D46] via-[#3A1B2C] to-[#1E0D16]',
+        accent: '#DFC184',
+        motif: 'sunburst',
+        description: 'Inspired by Awadhi royal silhouettes, this plum raw silk short kurti and dramatic flared gharara features antique gold kinari gota detailing at the knee.'
+      },
+      {
+        id: 'al-07',
+        name: 'Kani Weave Pashmina Shawl',
+        category: 'Silk Sarees',
+        price: 46000,
+        fabric: '100% GI-Certified Ladakhi Cashmere Pashmina',
+        badge: 'Collector Piece',
+        palette: 'from-[#3E352D] via-[#26201B] to-[#14110E]',
+        accent: '#D8B979',
+        motif: 'arch',
+        description: 'Hand-spun and woven in Kashmir using wooden tuji needles, showcasing archival paisley jama patterns in warm saffron, ivory, and antique gold hues.'
+      },
+      {
+        id: 'al-08',
+        name: 'Lucknowi Chikankari Mulmul Kurta',
+        category: 'Everyday Luxe',
+        price: 12500,
+        fabric: 'Fine Hand-Spun Cotton Mulmul with Shadow Work',
+        badge: 'Artisan Edit',
+        palette: 'from-[#4B5348] via-[#31372F] to-[#191D18]',
+        accent: '#E5CFA0',
+        motif: 'lotus',
+        description: 'Breathable ivory-sage mulmul adorned with 32 traditional Chikankari stitches including bakhiya, phanda, and murri, complete with straight palazzos.'
+      }
+    ];
+
+    // Application State
+    let state = {
+      activeCategory: 'All',
+      searchQuery: '',
+      wishlist: new Set(['al-02']),
+      cart: [
+        { productId: 'al-05', size: 'One Size', qty: 1 }
+      ],
+      quickViewProductId: null,
+      quickViewSize: 'M'
+    };
+
+    // Format Currency in Indian Rupees (₹)
+    function formatINR(amount) {
+      return '₹' + amount.toLocaleString('en-IN');
+    }
+
+    // Generate Decorative SVG Textile Artwork for each Product Card
+    function getProductArtworkSVG(motif, accent) {
+      if (motif === 'arch') {
+        return `
+          <svg class="w-36 h-44 opacity-80" viewBox="0 0 160 200" fill="none">
+            <path d="M80 14 C122 42, 144 82, 144 132 L144 186 L16 186 L16 132 C16 82, 38 42, 80 14 Z" stroke="${accent}" stroke-width="1.2"/>
+            <path d="M80 32 C112 55, 128 88, 128 132 L128 172 L32 172 L32 132 C32 88, 48 55, 80 32 Z" stroke="${accent}" stroke-width="0.7" stroke-dasharray="4 4"/>
+            <circle cx="80" cy="112" r="24" stroke="${accent}" stroke-width="1"/>
+            <path d="M80 76 L88 104 L116 112 L88 120 L80 148 L72 120 L44 112 L72 104 Z" stroke="${accent}" stroke-width="0.9"/>
+          </svg>`;
+      }
+      if (motif === 'lotus') {
+        return `
+          <svg class="w-36 h-44 opacity-80" viewBox="0 0 160 200" fill="none">
+            <circle cx="80" cy="100" r="56" stroke="${accent}" stroke-width="1" stroke-dasharray="3 3"/>
+            <path d="M80 42 C96 72, 114 86, 80 124 C46 86, 64 72, 80 42 Z" stroke="${accent}" stroke-width="1.2"/>
+            <path d="M80 124 C104 98, 130 98, 134 124 C112 136, 94 134, 80 124 Z" stroke="${accent}" stroke-width="1"/>
+            <path d="M80 124 C56 98, 30 98, 26 124 C48 136, 66 134, 80 124 Z" stroke="${accent}" stroke-width="1"/>
+            <circle cx="80" cy="148" r="4" fill="${accent}"/>
+          </svg>`;
+      }
+      return `
+        <svg class="w-36 h-44 opacity-80" viewBox="0 0 160 200" fill="none">
+          <rect x="26" y="34" width="108" height="132" rx="54" stroke="${accent}" stroke-width="1.1"/>
+          <circle cx="80" cy="100" r="34" stroke="${accent}" stroke-width="1"/>
+          <circle cx="80" cy="100" r="14" stroke="${accent}" stroke-width="0.8"/>
+          <path d="M80 54 V146 M34 100 H126 M48 68 L112 132 M112 68 L48 132" stroke="${accent}" stroke-width="0.6"/>
+        </svg>`;
+    }
+
+    // Show Smooth Toast Notification
+    function showToast(message) {
+      const container = document.getElementById('toast-container');
+      const toast = document.createElement('div');
+      toast.className = 'pointer-events-auto bg-obsidian text-ivory border border-gold/45 px-5 py-3.5 rounded-full shadow-xl flex items-center gap-3 text-xs tracking-wide transform transition-all duration-300 translate-y-2 opacity-0';
+      toast.innerHTML = `
+        <span class="w-2 h-2 rounded-full bg-gold shrink-0"></span>
+        <span>${message}</span>
+      `;
+      container.appendChild(toast);
+
+      requestAnimationFrame(() => {
+        toast.classList.remove('translate-y-2', 'opacity-0');
+      });
+
+      setTimeout(() => {
+        toast.classList.add('opacity-0', 'translate-y-2');
+        setTimeout(() => toast.remove(), 300);
+      }, 3000);
+    }
+
+    // Render Product Grid based on Active Category & Search Query
+    function renderProducts() {
+      const grid = document.getElementById('product-grid');
+      const emptyState = document.getElementById('empty-state');
+
+      const filtered = PRODUCTS.filter(item => {
+        const matchesCat = state.activeCategory === 'All' || item.category === state.activeCategory;
+        const q = state.searchQuery.trim().toLowerCase();
+        const matchesQuery = !q ||
+          item.name.toLowerCase().includes(q) ||
+          item.category.toLowerCase().includes(q) ||
+          item.fabric.toLowerCase().includes(q);
+        return matchesCat && matchesQuery;
+      });
+
+      if (filtered.length === 0) {
+        grid.innerHTML = '';
+        emptyState.classList.remove('hidden');
+        return;
+      }
+
+      emptyState.classList.add('hidden');
+      grid.innerHTML = filtered.map(product => {
+        const isWishlisted = state.wishlist.has(product.id);
+        return `
+          <article class="product-card group flex flex-col">
+            <!-- Luxury Visual Frame -->
+            <div class="relative aspect-[3/4] rounded-2xl overflow-hidden bg-cream border border-taupe shadow-xs">
+              <div onclick="openQuickView('${product.id}')" class="product-visual cursor-pointer w-full h-full bg-gradient-to-b ${product.palette} flex flex-col items-center justify-center p-6 relative">
+                ${getProductArtworkSVG(product.motif, product.accent)}
+                <span class="mt-3 text-[10px] uppercase tracking-[0.28em] text-ivory/75 font-light">ABIHA LIBAS</span>
+              </div>
+
+              <!-- Top Badge & Wishlist Heart -->
+              <div class="absolute top-3.5 left-3.5 right-3.5 flex items-center justify-between pointer-events-none">
+                <span class="px-3 py-1 rounded-full bg-ivory/90 backdrop-blur-md text-obsidian text-[10px] uppercase tracking-widest font-medium shadow-xs">
+                  ${product.badge}
+                </span>
+                <button
+                  onclick="toggleWishlist('${product.id}')"
+                  aria-label="Toggle Wishlist for ${product.name}"
+                  class="pointer-events-auto w-9 h-9 rounded-full bg-ivory/90 backdrop-blur-md flex items-center justify-center transition hover:scale-105 ${isWishlisted ? 'text-rose-700' : 'text-obsidian hover:text-gold'}">
+                  <svg class="w-4 h-4" fill="${isWishlisted ? 'currentColor' : 'none'}" stroke="currentColor" stroke-width="1.6" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12Z" />
+                  </svg>
+                </button>
+              </div>
+
+              <!-- Hover Quick Actions Bar -->
+              <div class="absolute inset-x-3.5 bottom-3.5 flex gap-2 opacity-95 sm:opacity-0 sm:translate-y-2 sm:group-hover:opacity-100 sm:group-hover:translate-y-0 transition-all duration-300">
+                <button
+                  onclick="openQuickView('${product.id}')"
+                  class="flex-1 py-2.5 px-3 rounded-full bg-ivory/95 hover:bg-obsidian text-obsidian hover:text-ivory text-[11px] uppercase tracking-widest font-medium backdrop-blur-md transition shadow-md">
+                  Quick View
+                </button>
+                <button
+                  onclick="addToCart('${product.id}', 'M')"
+                  aria-label="Quick Add ${product.name}"
+                  class="py-2.5 px-3.5 rounded-full bg-gold hover:bg-goldDark text-white text-[11px] uppercase tracking-wider font-medium transition shadow-md">
+                  + Bag
+                </button>
+              </div>
+            </div>
+
+            <!-- Product Metadata -->
+            <div class="pt-4 space-y-1 flex-1 flex flex-col justify-between">
+              <div>
+                <p class="text-[11px] uppercase tracking-widest text-gold">${product.category}</p>
+                <h3 onclick="openQuickView('${product.id}')" class="font-serif text-xl text-obsidian group-hover:text-gold transition cursor-pointer leading-snug mt-0.5">
+                  ${product.name}
+                </h3>
+                <p class="text-xs text-muted line-clamp-1 mt-0.5">${product.fabric}</p>
+              </div>
+              <p class="text-sm font-semibold text-charcoal pt-1.5">${formatINR(product.price)}</p>
+            </div>
+          </article>
+        `;
+      }).join('');
+    }
+
+    // Toggle Wishlist State
+    function toggleWishlist(productId) {
+      const product = PRODUCTS.find(p => p.id === productId);
+      if (!product) return;
+
+      if (state.wishlist.has(productId)) {
+        state.wishlist.delete(productId);
+        showToast(`Removed "${product.name}" from wishlist`);
+      } else {
+        state.wishlist.add(productId);
+        showToast(`Saved "${product.name}" to your wishlist`);
+      }
+      updateCounters();
+      renderProducts();
+      renderWishlistDrawer();
+    }
+
+    // Add Item to Shopping Bag
+    function addToCart(productId, size = 'M') {
+      const product = PRODUCTS.find(p => p.id === productId);
+      if (!product) return;
+
+      const existing = state.cart.find(item => item.productId === productId && item.size === size);
+      if (existing) {
+        existing.qty += 1;
+      } else {
+        state.cart.push({ productId, size, qty: 1 });
+      }
+
+      updateCounters();
+      renderCartDrawer();
+      showToast(`Added "${product.name}" (${size}) to bag`);
+    }
+
+    // Update Quantity in Bag
+    function updateCartQty(index, delta) {
+      if (!state.cart[index]) return;
+      state.cart[index].qty += delta;
+      if (state.cart[index].qty <= 0) {
+        state.cart.splice(index, 1);
+      }
+      updateCounters();
+      renderCartDrawer();
+    }
+
+    // Update Header Badges
+    function updateCounters() {
+      document.getElementById('wishlist-count').textContent = state.wishlist.size;
+      const totalItems = state.cart.reduce((sum, item) => sum + item.qty, 0);
+      document.getElementById('cart-count').textContent = totalItems;
+      document.getElementById('cart-drawer-subtitle').textContent = `${totalItems} curated ${totalItems === 1 ? 'piece' : 'pieces'} selected`;
+    }
+
+    // Render Shopping Bag Drawer
+    function renderCartDrawer() {
+      const container = document.getElementById('cart-items-container');
+      const subtotalEl = document.getElementById('cart-subtotal');
+
+      if (state.cart.length === 0) {
+        container.innerHTML = `
+          <div class="text-center py-16 space-y-3">
+            <p class="font-serif text-2xl text-obsidian">Your bag is empty</p>
+            <p class="text-xs text-muted max-w-xs mx-auto">Discover handwoven Banarasi silks, festive lehengas, and heirloom shawls in our collection.</p>
+          </div>
+        `;
+        subtotalEl.textContent = '₹0';
+        return;
+      }
+
+      let subtotal = 0;
+      container.innerHTML = state.cart.map((item, idx) => {
+        const product = PRODUCTS.find(p => p.id === item.productId);
+        const lineTotal = product.price * item.qty;
+        subtotal += lineTotal;
+
+        return `
+          <div class="flex gap-4 pb-5 border-b border-taupe">
+            <div class="w-20 h-24 rounded-xl bg-gradient-to-b ${product.palette} flex items-center justify-center shrink-0 border border-taupe">
+              <span class="font-serif text-xs text-gold tracking-widest">AL</span>
+            </div>
+            <div class="flex-1 flex flex-col justify-between">
+              <div>
+                <div class="flex justify-between items-start gap-2">
+                  <h4 class="font-serif text-lg text-obsidian leading-tight">${product.name}</h4>
+                  <button onclick="updateCartQty(${idx}, -${item.qty})" class="text-xs text-muted hover:text-obsidian">&times;</button>
+                </div>
+                <p class="text-xs text-muted mt-0.5">Size: <span class="text-charcoal font-medium">${item.size}</span></p>
+              </div>
+              <div class="flex items-center justify-between mt-3">
+                <div class="inline-flex items-center border border-taupe rounded-full bg-cream">
+                  <button onclick="updateCartQty(${idx}, -1)" class="px-2.5 py-1 text-xs hover:text-gold">&minus;</button>
+                  <span class="px-2 text-xs font-medium">${item.qty}</span>
+                  <button onclick="updateCartQty(${idx}, 1)" class="px-2.5 py-1 text-xs hover:text-gold">+</button>
+                </div>
+                <span class="text-sm font-semibold text-obsidian">${formatINR(lineTotal)}</span>
+              </div>
+            </div>
+          </div>
+        `;
+      }).join('');
+
+      subtotalEl.textContent = formatINR(subtotal);
+    }
+
+    // Render Wishlist Drawer
+    function renderWishlistDrawer() {
+      const container = document.getElementById('wishlist-items-container');
+      if (state.wishlist.size === 0) {
+        container.innerHTML = `
+          <div class="text-center py-16 space-y-2">
+            <p class="font-serif text-2xl text-obsidian">No saved pieces yet</p>
+            <p class="text-xs text-muted">Tap the heart icon on any ensemble to curate your lookbook.</p>
+          </div>
+        `;
+        return;
+      }
+
+      container.innerHTML = Array.from(state.wishlist).map(id => {
+        const p = PRODUCTS.find(prod => prod.id === id);
+        if (!p) return '';
+        return `
+          <div class="flex items-center justify-between gap-4 p-3.5 rounded-2xl bg-cream border border-taupe">
+            <div class="flex items-center gap-3.5">
+              <div class="w-14 h-16 rounded-xl bg-gradient-to-b ${p.palette} flex items-center justify-center shrink-0">
+                <span class="font-serif text-xs text-gold">AL</span>
+              </div>
+              <div>
+                <h4 class="font-serif text-lg text-obsidian leading-tight">${p.name}</h4>
+                <p class="text-xs font-medium text-charcoal mt-0.5">${formatINR(p.price)}</p>
+              </div>
+            </div>
+            <div class="flex flex-col gap-1.5">
+              <button onclick="addToCart('${p.id}', 'M')" class="px-3.5 py-1.5 rounded-full bg-obsidian text-ivory text-[10px] uppercase tracking-wider hover:bg-gold transition">
+                Move to Bag
+              </button>
+              <button onclick="toggleWishlist('${p.id}')" class="text-[10px] text-muted hover:text-obsidian underline">
+                Remove
+              </button>
+            </div>
+          </div>
+        `;
+      }).join('');
+    }
+
+    // Open Quick View Modal
+    function openQuickView(productId) {
+      const product = PRODUCTS.find(p => p.id === productId);
+      if (!product) return;
+
+      state.quickViewProductId = productId;
+      state.quickViewSize = 'M';
+
+      document.getElementById('qv-category').textContent = `${product.category} • ${product.badge}`;
+      document.getElementById('qv-title').textContent = product.name;
+      document.getElementById('qv-price').textContent = formatINR(product.price);
+      document.getElementById('qv-desc').textContent = product.description;
+      document.getElementById('qv-fabric').textContent = product.fabric;
+
+      const visualContainer = document.getElementById('qv-visual-container');
+      visualContainer.className = `md:col-span-5 min-h-[260px] md:min-h-[440px] p-6 flex flex-col justify-between relative bg-gradient-to-b ${product.palette} text-ivory`;
+      visualContainer.innerHTML = `
+        <span class="text-[10px] uppercase tracking-[0.25em] text-gold">${product.badge}</span>
+        <div class="my-auto flex flex-col items-center">
+          ${getProductArtworkSVG(product.motif, product.accent)}
+        </div>
+        <span class="text-[11px] text-ivory/75 tracking-widest uppercase text-center">Handcrafted in India</span>
+      `;
+
+      // Render Size Options
+      const sizes = ['XS', 'S', 'M', 'L', 'XL', 'Custom'];
+      const sizesEl = document.getElementById('qv-sizes');
+      sizesEl.innerHTML = sizes.map(sz => `
+        <button
+          type="button"
+          onclick="selectQuickViewSize('${sz}')"
+          class="qv-size-btn px-3.5 py-2 rounded-full text-xs border transition ${sz === state.quickViewSize ? 'bg-obsidian text-ivory border-obsidian' : 'bg-transparent text-charcoal border-taupe hover:border-gold'}">
+          ${sz}
+        </button>
+      `).join('');
+
+      const modal = document.getElementById('quickview-modal');
+      modal.classList.remove('hidden');
+      modal.classList.add('flex');
+    }
+
+    function selectQuickViewSize(size) {
+      state.quickViewSize = size;
+      document.querySelectorAll('.qv-size-btn').forEach(btn => {
+        if (btn.textContent.trim() === size) {
+          btn.className = 'qv-size-btn px-3.5 py-2 rounded-full text-xs border transition bg-obsidian text-ivory border-obsidian';
+        } else {
+          btn.className = 'qv-size-btn px-3.5 py-2 rounded-full text-xs border transition bg-transparent text-charcoal border-taupe hover:border-gold';
+        }
+      });
+    }
+
+    // Event Listeners Initialization
+    document.addEventListener('DOMContentLoaded', () => {
+      renderProducts();
+      updateCounters();
+      renderCartDrawer();
+      renderWishlistDrawer();
+
+      // Category Filter Buttons
+      document.querySelectorAll('.filter-btn').forEach(btn => {
+        btn.addEventListener('click', () => {
+          state.activeCategory = btn.dataset.category;
+          document.querySelectorAll('.filter-btn').forEach(b => {
+            b.className = 'filter-btn px-5 py-2.5 rounded-full text-xs uppercase tracking-[0.18em] transition bg-transparent text-charcoal border border-taupe hover:border-gold';
+          });
+          btn.className = 'filter-btn active px-5 py-2.5 rounded-full text-xs uppercase tracking-[0.18em] transition bg-obsidian text-ivory border border-obsidian';
+          renderProducts();
+        });
+      });
+
+      // Header Nav Category Shortcuts
+      document.querySelectorAll('.nav-filter-link').forEach(link => {
+        link.addEventListener('click', () => {
+          const cat = link.dataset.navFilter;
+          const targetBtn = document.querySelector(`.filter-btn[data-category="${cat}"]`);
+          if (targetBtn) targetBtn.click();
+          document.getElementById('mobile-nav-drawer').classList.add('hidden');
+        });
+      });
+
+      // Mobile Navigation Toggle
+      document.getElementById('mobile-menu-btn').addEventListener('click', () => {
+        document.getElementById('mobile-nav-drawer').classList.toggle('hidden');
+      });
+
+      // Search Bar Toggle & Input
+      const searchPanel = document.getElementById('search-bar-panel');
+      const searchInput = document.getElementById('search-input');
+      document.getElementById('search-toggle-btn').addEventListener('click', () => {
+        searchPanel.classList.toggle('hidden');
+        if (!searchPanel.classList.contains('hidden')) searchInput.focus();
+      });
+
+      searchInput.addEventListener('input', (e) => {
+        state.searchQuery = e.target.value;
+        renderProducts();
+      });
+
+      document.getElementById('clear-search-btn').addEventListener('click', () => {
+        state.searchQuery = '';
+        searchInput.value = '';
+        renderProducts();
+      });
+
+      document.getElementById('reset-filters-btn').addEventListener('click', () => {
+        state.activeCategory = 'All';
+        state.searchQuery = '';
+        searchInput.value = '';
+        document.querySelector('.filter-btn[data-category="All"]').click();
+      });
+
+      // Quick View Modal Controls
+      const qvModal = document.getElementById('quickview-modal');
+      document.getElementById('close-quickview-btn').addEventListener('click', () => {
+        qvModal.classList.add('hidden');
+        qvModal.classList.remove('flex');
+      });
+      qvModal.addEventListener('click', (e) => {
+        if (e.target === qvModal) {
+          qvModal.classList.add('hidden');
+          qvModal.classList.remove('flex');
+        }
+      });
+
+      document.getElementById('qv-add-to-bag-btn').addEventListener('click', () => {
+        if (state.quickViewProductId) {
+          addToCart(state.quickViewProductId, state.quickViewSize);
+          qvModal.classList.add('hidden');
+          qvModal.classList.remove('flex');
+        }
+      });
+
+      document.getElementById('qv-wishlist-btn').addEventListener('click', () => {
+        if (state.quickViewProductId) {
+          toggleWishlist(state.quickViewProductId);
+        }
+      });
+
+      // Private Styling Modal Controls
+      const stylingModal = document.getElementById('styling-modal');
+      const openStyling = () => {
+        stylingModal.classList.remove('hidden');
+        stylingModal.classList.add('flex');
+      };
+      document.getElementById('open-styling-modal-btn').addEventListener('click', openStyling);
+      document.getElementById('atelier-consult-btn').addEventListener('click', openStyling);
+      document.getElementById('close-styling-btn').addEventListener('click', () => {
+        stylingModal.classList.add('hidden');
+        stylingModal.classList.remove('flex');
+      });
+      stylingModal.addEventListener('click', (e) => {
+        if (e.target === stylingModal) {
+          stylingModal.classList.add('hidden');
+          stylingModal.classList.remove('flex');
+        }
+      });
+
+      document.getElementById('styling-form').addEventListener('submit', (e) => {
+        e.preventDefault();
+        stylingModal.classList.add('hidden');
+        stylingModal.classList.remove('flex');
+        e.target.reset();
+        showToast('Private styling request received. Our concierge will reach out shortly.');
+      });
+
+      // Shopping Bag Drawer Controls
+      const cartOverlay = document.getElementById('cart-drawer-overlay');
+      document.getElementById('cart-drawer-btn').addEventListener('click', () => {
+        cartOverlay.classList.remove('hidden');
+      });
+      document.getElementById('close-cart-btn').addEventListener('click', () => {
+        cartOverlay.classList.add('hidden');
+      });
+      cartOverlay.addEventListener('click', (e) => {
+        if (e.target === cartOverlay) cartOverlay.classList.add('hidden');
+      });
+
+      document.getElementById('checkout-btn').addEventListener('click', () => {
+        if (state.cart.length === 0) {
+          showToast('Your shopping bag is currently empty.');
+          return;
+        }
+        cartOverlay.classList.add('hidden');
+        showToast('Proceeding to ABIHA LIBAS Couture Concierge Checkout...');
+      });
+
+      // Wishlist Drawer Controls
+      const wishOverlay = document.getElementById('wishlist-drawer-overlay');
+      document.getElementById('wishlist-drawer-btn').addEventListener('click', () => {
+        wishOverlay.classList.remove('hidden');
+      });
+      document.getElementById('close-wishlist-btn').addEventListener('click', () => {
+        wishOverlay.classList.add('hidden');
+      });
+      wishOverlay.addEventListener('click', (e) => {
+        if (e.target === wishOverlay) wishOverlay.classList.add('hidden');
+      });
+
+      // Newsletter & Footer Info Links
+      document.getElementById('newsletter-form').addEventListener('submit', (e) => {
+        e.preventDefault();
+        e.target.reset();
+        showToast('Welcome to the ABIHA LIBAS Inner Circle.');
+      });
+
+      document.querySelectorAll('.footer-info-btn').forEach(btn => {
+        btn.addEventListener('click', () => {
+          showToast(`${btn.dataset.topic}: Complimentary concierge support available.`);
+        });
+      });
+    });
+  </script>
 </body>
-</html>
+</html>s
