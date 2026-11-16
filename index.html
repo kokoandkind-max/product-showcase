@@ -41,7 +41,7 @@
             }
           },
           animation: {
-            fadeIn: 'fadeIn 0.3s ease-out',
+            fadeIn: 'fadeIn 0.3s ease-out forwards',
           }
         }
       }
@@ -82,11 +82,10 @@
 <body class="bg-ivory text-obsidian antialiased selection:bg-gold selection:text-white">
 
   <!-- ===================================================================== -->
-  <!-- 2. HEADER (Centered, Bold Abiha Libas only) -->
+  <!-- HEADER -->
   <!-- ===================================================================== -->
   <header id="main-header" class="sticky top-0 z-40 bg-ivory/95 backdrop-blur-sm border-b border-taupe transition-all duration-300">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-10 h-24 flex items-center justify-center relative">
-      <!-- Brand Wordmark (Center, Bolder, Sophisticated) -->
       <a href="#" class="text-center block group py-4">
         <span class="font-serif text-4xl sm:text-5xl tracking-[0.24em] font-bold text-obsidian block">
           ABIHA LIBAS
@@ -96,13 +95,12 @@
   </header>
 
   <!-- ===================================================================== -->
-  <!-- 3. HERO SECTION (Best looking Burkha) -->
+  <!-- HERO SECTION -->
   <!-- ===================================================================== -->
   <section class="relative overflow-hidden bg-cream text-obsidian py-16 lg:py-24 border-b border-taupe">
     <div class="absolute inset-0 heritage-pattern opacity-100"></div>
 
     <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-10 w-full grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
-      <!-- Editorial Copy -->
       <div class="space-y-6 animate-fadeIn">
         <div class="inline-flex items-center gap-3 px-4 py-1.5 rounded-full border border-gold/50 bg-gold/10 text-gold text-[11px] uppercase tracking-widestPlus">
           <span>New Collection &rsquo;26</span>
@@ -117,7 +115,6 @@
           Discover our signature Premium Nidah Burkha. Designed for comfort, crafted for sophistication. Perfect for the modern Muslimah who values both style and faith.
         </p>
 
-        <!-- CTA -->
         <div class="pt-3">
           <a href="#collections" class="inline-block gold-shimmer text-obsidian font-semibold text-xs uppercase tracking-[0.2em] px-10 py-4 rounded-full shadow-lg shadow-gold/20 transition transform hover:-translate-y-0.5">
             Shop Best Seller
@@ -125,10 +122,8 @@
         </div>
       </div>
 
-      <!-- Visual Frame (Sample Burkha Image) -->
-      <div class="flex justify-center md:justify-end animate-fadeIn delay-150">
+      <div class="flex justify-center md:justify-end animate-fadeIn">
         <div class="relative w-full max-w-sm aspect-[9/16] rounded-2xl overflow-hidden shadow-2xl border-4 border-white">
-          <!-- REPLACE WITH YOUR BEST BURKHA IMAGE URL -->
           <img src="https://images.unsplash.com/photo-1601789746450-87797f7925b2?q=80&w=800&auto=format&fit=crop" alt="Elegant Burkha Design" class="w-full h-full object-cover" />
           <div class="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent"></div>
           <div class="absolute bottom-6 left-6 text-white">
@@ -141,10 +136,9 @@
   </section>
 
   <!-- ===================================================================== -->
-  <!-- 4. PRODUCT COLLECTION (Islamic Cultural Wear, Cheap Pricing) -->
+  <!-- PRODUCT COLLECTION -->
   <!-- ===================================================================== -->
   <section id="collections" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-10 py-20 lg:py-28">
-    <!-- Section Heading -->
     <div class="text-center max-w-3xl mx-auto mb-16">
       <h2 class="font-serif text-4xl sm:text-5xl text-obsidian font-normal">Modest Wear & Islamic Cultural Dress</h2>
       <p class="text-muted text-base mt-4 leading-relaxed">
@@ -152,7 +146,7 @@
       </p>
     </div>
 
-    <!-- Category Filter Pills (Updated) -->
+    <!-- Category Filter Pills -->
     <div id="category-tabs" class="flex flex-wrap items-center justify-center gap-3 mb-16">
       <button data-category="ALL" class="filter-btn active px-6 py-3 rounded-full text-xs uppercase tracking-[0.18em] transition bg-obsidian text-ivory border border-obsidian hover:bg-obsidian/90">
         All
@@ -176,7 +170,7 @@
 
     <!-- Product Grid -->
     <div id="product-grid" class="grid grid-cols-2 lg:grid-cols-4 gap-x-6 gap-y-12">
-      <!-- Items are inserted here by JavaScript -->
+      <!-- Items inserted here by JS -->
     </div>
 
     <!-- Empty State -->
@@ -189,7 +183,7 @@
   </section>
 
   <!-- ===================================================================== -->
-  <!-- 5. ATELIER SECTION (Refined Text) -->
+  <!-- ATELIER SECTION -->
   <!-- ===================================================================== -->
   <section id="about-craft" class="bg-cream border-y border-taupe py-20 lg:py-28">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-10 grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
@@ -206,9 +200,6 @@
             <p class="text-taupe/80 text-sm leading-relaxed font-light">
               At Abiha Libas, we believe that modest clothing should never compromise on elegance or quality. We are dedicated to sourcing the finest fabrics, such as premium Nidah and breathable Crepe, to ensure comfort without sacrificing style.
             </p>
-            <p class="text-taupe/80 text-sm leading-relaxed font-light">
-              Every design is thoughtfully created to honor Islamic cultural dress requirements while providing contemporary silhouettes that empower the modern woman.
-            </p>
           </div>
         </div>
       </div>
@@ -218,23 +209,18 @@
           Crafted with Care, Designed for Dignity
         </h2>
         <p class="text-charcoal/85 text-base leading-relaxed">
-          We pay meticulous attention to detail in our stitching and embellishments. Our goal is to provide durable, beautiful garments that you feel proud to wear, whether for daily prayers, special occasions, or everyday life.
-        </p>
-        <p class="text-muted text-sm leading-relaxed">
-          Abiha Libas stands for accessible luxury in modest fashion.
+          We pay meticulous attention to detail in our stitching and embellishments. Our goal is to provide durable, beautiful garments that you feel proud to wear.
         </p>
       </div>
     </div>
   </section>
 
   <!-- ===================================================================== -->
-  <!-- 6. FOOTER (Cleaned, Contact Details, Social Links) -->
+  <!-- FOOTER -->
   <!-- ===================================================================== -->
   <footer class="bg-obsidian text-ivory pt-20 pb-12">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-10">
       <div class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-12 pb-16 border-b border-taupe/15">
-
-        <!-- Column 1: Brand & Newsletter -->
         <div class="md:col-span-3 lg:col-span-2 space-y-5">
           <span class="font-serif text-3xl tracking-[0.24em] text-ivory block font-bold">ABIHA LIBAS</span>
           <p class="text-taupe/70 text-sm leading-relaxed max-w-md">
@@ -248,7 +234,6 @@
           </form>
         </div>
 
-        <!-- Column 2: About Products Blogs (Replaces Client Care) -->
         <div class="lg:col-span-1 space-y-4">
           <h4 class="text-xs uppercase tracking-[0.2em] text-gold font-medium">Product Insights</h4>
           <ul class="space-y-3 text-sm text-taupe/75">
@@ -259,7 +244,6 @@
           </ul>
         </div>
 
-        <!-- Column 3: Business Details & Social -->
         <div class="lg:col-span-2 space-y-4">
           <h4 class="text-xs uppercase tracking-[0.2em] text-gold font-medium">Contact & Connect</h4>
           <div class="space-y-3 text-sm text-taupe/75">
@@ -272,25 +256,9 @@
             <p><strong>Phone:</strong> <a href="tel:+918670789389" class="hover:text-gold">+91 8670789389</a></p>
             <p><strong>Email:</strong> <a href="mailto:kokoandkind@gmail.com" class="hover:text-gold">kokoandkind@gmail.com</a></p>
           </div>
-
-          <!-- Social Icons -->
-          <div class="flex items-center space-x-5 pt-3 text-taupe/70">
-            <a href="https://www.facebook.com/profile.php?id=61576491788970" target="_blank" aria-label="Facebook" class="hover:text-gold transition">
-              <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M22.675 0h-21.35c-.732 0-1.325.593-1.325 1.325v21.35c0 .733.593 1.325 1.325 1.325h11.495v-9.294h-3.128v-3.622h3.128v-2.671c0-3.1 1.893-4.788 4.659-4.788 1.325 0 2.463.099 2.795.143v3.24l-1.918.001c-1.504 0-1.795.715-1.795 1.763v2.313h3.587l-.467 3.622h-3.12v9.294h6.116c.733 0 1.325-.592 1.325-1.325v-21.35c0-.732-.593-1.325-1.325-1.325z"/></svg>
-            </a>
-            <!-- Instagram Placeholder -->
-            <a href="#" aria-label="Instagram" class="hover:text-gold transition opacity-60">
-              <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 1.366.062 2.633.324 3.608 1.298.975.975 1.237 2.242 1.299 3.608.058 1.266.07 1.646.07 4.85s-.012 3.584-.07 4.85c-.062 1.366-.324 2.633-1.298 3.608-.975.975-2.242 1.237-3.608 1.299-1.266.058-1.646.07-4.85.07s-3.584-.012-4.85-.07c-1.366-.062-2.633-.324-3.608-1.298-.975-.975-1.237-2.242-1.299-3.608-.058-1.266-.07-1.646-.07-4.85s.012-3.584.07-4.85c.062-1.366.324-2.633 1.298-3.608.975-.975 2.242-1.237 3.608-1.299 1.266-.058 1.646-.07 4.85-.07zm0-2.163c-3.259 0-3.667.014-4.947.072-4.363.2-6.782 2.618-6.982 6.981-.058 1.281-.072 1.689-.072 4.947s.014 3.667.072 4.947c.2 4.363 2.618 6.782 6.981 6.982 1.281.058 1.689.074 4.947.074s3.667-.014 4.947-.072c4.363-.2 6.782-2.618 6.982-6.981.058-1.281.072-1.689.072-4.947s-.014-3.667-.072-4.947c-.2-4.363-2.618-6.782-6.981-6.982-1.281-.053-1.689-.074-4.947-.074zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.162 6.162 6.162 6.162-2.759 6.162-6.162c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.791-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.209-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.441s.645 1.441 1.441 1.441 1.441-.645 1.441-1.441-.645-1.441-1.441-1.441z"/></svg>
-            </a>
-            <!-- WhatsApp Placeholder -->
-            <a href="#" aria-label="WhatsApp" class="hover:text-gold transition opacity-60">
-              <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.199.297-.766.967-.939 1.165-.173.198-.347.223-.644.075-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.297-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.371-.272.297-1.039 1.016-1.039 2.479 0 1.462 1.063 2.873 1.211 3.072.149.198 2.059 3.146 4.986 4.409.693.299 1.235.477 1.657.622.696.223 1.329.191 1.829.116.56-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.273-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.511-5.26c0-5.437 4.424-9.861 9.862-9.861a9.852 9.852 0 016.982 2.897 9.853 9.853 0 012.898 6.982c-.001 5.437-4.425 9.861-9.863 9.861m1.018-18.187a8.15 8.15 0 00-5.772 2.394 8.153 8.153 0 00-2.394 5.772 8.13 8.13 0 001.202 4.296l-1.283 4.693 4.808-1.261a8.142 8.142 0 003.882.989h.003a8.153 8.153 0 005.772-2.394 8.153 8.153 0 002.394-5.772 8.153 8.153 0 00-2.898-6.982 8.15 8.15 0 00-5.773-2.395"/></svg>
-            </a>
-          </div>
         </div>
       </div>
 
-      <!-- Bottom Copyright -->
       <div class="pt-8 flex flex-col sm:flex-row items-center justify-center gap-4 text-xs text-taupe/55 text-center">
         <p>&copy; 2026 ABIHA LIBAS Couture Pvt. Ltd. All Rights Reserved.</p>
       </div>
@@ -298,37 +266,35 @@
   </footer>
 
   <!-- ===================================================================== -->
-  <!-- JAVASCRIPT FOR PRODUCT HANDLING & FILTERING -->
+  <!-- JAVASCRIPT -->
   <!-- ===================================================================== -->
   <script>
-    // --- PRODUCT DATA (POPULATED WITH SAMPLES) ---
-    // NOTE: You must replace these image URLs with your actual product images.
     const allProducts = [
-      // ABAYYA (4 items)
-      { id: 1, name: "Classic Black Abayya", category: "ABAYYA", price: 149, img: "IMAGES/ABAYA1.jfif" },
-      { id: 2, name: "Embroidered Georgette Abayya", category: "ABAYYA", price: 219, img: "IMAGES/ABAYA2.jfif" },
-      { id: 3, name: "Nidah Fabric Closed Abayya", category: "ABAYYA", price: 189, img: "IMAGES/ABAYA3.jfif" },
-      { id: 4, name: "Denim Style Abayya", category: "ABAYYA", price: 179, img: "IMAGES/ABAYA4.jfif" },
-      // BURKHA (4 items)
-      { id: 5, name: "Premium Nidah Burkha Set", category: "BURKHA", price: 999, img: "IMAGES/BURKHA1.jfif" },
-      { id: 6, name: "Soft Crepe Burkha", category: "BURKHA", price: 999, img: "IMAGES/BURKHA2.jfif" },
-      { id: 7, name: "Burkha with Stone Work", category: "BURKHA", price: 899, img: "IMAGES/BURKHA3.jfif" },
-      { id: 8, name: "Layered Butterfly Burkha", category: "BURKHA", price: 799, img: "IMAGES/BURKHA4.jfif" },
-      // DUPATTA (4 items)
-      { id: 9, name: "Chiffon Solid Dupatta", category: "DUPATTA", price: 199, img: "IMAGES/DUPATTA1.jfif" },
-      { id: 10, name: "Banarasi Art Silk Dupatta", category: "DUPATTA", price: 199, img: "IMAGES/DUPATTA2.jfif" },
-      { id: 11, name: "Printed Cotton Dupatta", category: "DUPATTA", price: 299, img: "IMAGES/DUPATTA3.jfif" },
-      { id: 12, name: "Net Embroidered Dupatta", category: "DUPATTA", price: 199, img: "IMAGES/DUPATTA4.jfif" },
-      // HIJAB PINS (4 items)
-      { id: 13, name: "Pearl Detailed Hijab Pins (Pack of 12)", category: "HIJAB PINS", price: 99, img: "IMAGES/PIN1.jfif" },
-      { id: 14, name: "Magnetic Hijab Pins (No Snag)", category: "HIJAB PINS", price: 49, img: "IMAGES/PIN2.jfif" },
-      { id: 15, name: "Crystal Brooch Pin", category: "HIJAB PINS", price: 99, img: "IMAGES/PIN3.jfif" },
-      { id: 16, name: "Colorful Round Head Pins", category: "HIJAB PINS", price: 99, img: "IMAGES/PIN4.jfif" },
-      // OTHERS (4 items)
-      { id: 17, name: "Cotton Jersey Hijab", category: "OTHERS", price: 99, img: "IMAGES/OT1.jfif" },
-      { id: 18, name: "Abayya Inner Slip Dress", category: "OTHERS", price: 99, img: "IMAGES/OT2.jfif" },
-      { id: 19, name: "Hijab Cap Underscarf", category: "OTHERS", price: 79, img: "IMAGES/OT3.jfif" },
-      { id: 20, name: "Modest Swimwear Burkini", category: "OTHERS", price: 99, img: "IMAGES/OT4.jfif" }
+      // ABAYYA
+      { id: 1, name: "Classic Black Abayya", category: "ABAYYA", price: 149, desc: "Premium flowing fabric", img: "https://images.unsplash.com/photo-1583391733956-3750e0ff4e8b?q=80&w=800&auto=format&fit=crop" },
+      { id: 2, name: "Embroidered Georgette Abayya", category: "ABAYYA", price: 219, desc: "Intricate sleeve embroidery", img: "IMAGES/ABAYA2.jfif" },
+      { id: 3, name: "Nidah Fabric Closed Abayya", category: "ABAYYA", price: 189, desc: "Luxurious smooth finish", img: "IMAGES/ABAYA3.jfif" },
+      { id: 4, name: "Denim Style Abayya", category: "ABAYYA", price: 179, desc: "Contemporary casual look", img: "IMAGES/ABAYA4.jfif" },
+      // BURKHA
+      { id: 5, name: "Premium Nidah Burkha Set", category: "BURKHA", price: 999, desc: "Includes matching Sheila", img: "IMAGES/BURKHA1.jfif" },
+      { id: 6, name: "Soft Crepe Burkha", category: "BURKHA", price: 999, desc: "Lightweight and breathable", img: "IMAGES/BURKHA2.jfif" },
+      { id: 7, name: "Burkha with Stone Work", category: "BURKHA", price: 899, desc: "Elegant embellished border", img: "IMAGES/BURKHA3.jfif" },
+      { id: 8, name: "Layered Butterfly Burkha", category: "BURKHA", price: 799, desc: "Graceful drape silhouette", img: "IMAGES/BURKHA4.jfif" },
+      // DUPATTA
+      { id: 9, name: "Chiffon Solid Dupatta", category: "DUPATTA", price: 199, desc: "Featherlight everyday wear", img: "IMAGES/DUPATTA1.jfif" },
+      { id: 10, name: "Banarasi Art Silk Dupatta", category: "DUPATTA", price: 199, desc: "Traditional festive weave", img: "IMAGES/DUPATTA2.jfif" },
+      { id: 11, name: "Printed Cotton Dupatta", category: "DUPATTA", price: 299, desc: "Vibrant ethnic prints", img: "IMAGES/DUPATTA3.jfif" },
+      { id: 12, name: "Net Embroidered Dupatta", category: "DUPATTA", price: 199, desc: "Delicate mesh design", img: "IMAGES/DUPATTA4.jfif" },
+      // HIJAB PINS
+      { id: 13, name: "Pearl Detailed Hijab Pins", category: "HIJAB PINS", price: 99, desc: "Pack of 12 secure pins", img: "IMAGES/PIN1.jfif" },
+      { id: 14, name: "Magnetic Hijab Pins", category: "HIJAB PINS", price: 49, desc: "No-snag strong hold", img: "IMAGES/PIN2.jfif" },
+      { id: 15, name: "Crystal Brooch Pin", category: "HIJAB PINS", price: 99, desc: "Sparkling statement piece", img: "IMAGES/PIN3.jfif" },
+      { id: 16, name: "Colorful Round Head Pins", category: "HIJAB PINS", price: 99, desc: "Multicolor daily pack", img: "IMAGES/PIN4.jfif" },
+      // OTHERS
+      { id: 17, name: "Cotton Jersey Hijab", category: "OTHERS", price: 99, desc: "Stretchable comfort fit", img: "IMAGES/OT1.jfif" },
+      { id: 18, name: "Abayya Inner Slip Dress", category: "OTHERS", price: 99, desc: "Soft layering essential", img: "IMAGES/OT2.jfif" },
+      { id: 19, name: "Hijab Cap Underscarf", category: "OTHERS", price: 79, desc: "Anti-slip breathable cap", img: "IMAGES/OT3.jfif" },
+      { id: 20, name: "Modest Swimwear Burkini", category: "OTHERS", price: 99, desc: "Full coverage active wear", img: "IMAGES/OT4.jfif" }
     ];
 
     const formatPrice = (price) => {
@@ -353,9 +319,9 @@
         const card = document.createElement('div');
         card.className = 'product-card group opacity-0 animate-fadeIn';
         card.innerHTML = `
-          <div class="relative aspect-[3/4] rounded-xl overflow-hidden bg-cream mb-4">
+          <div class="relative aspect-[3/4] rounded-xl overflow-hidden bg-cream mb-4 shadow-sm">
             <img src="${product.img}" alt="${product.name}" class="product-visual w-full h-full object-cover" loading="lazy" />
-             <div class="absolute inset-0 bg-black/0 group-hover:bg-black/5 transition-colors duration-300"></div>
+            <div class="absolute inset-0 bg-black/0 group-hover:bg-black/5 transition-colors duration-300"></div>
           </div>
           <h3 class="font-serif text-xl text-obsidian tracking-wide">${product.name}</h3>
           <p class="text-xs text-muted mt-1">${product.desc}</p>
@@ -369,7 +335,6 @@
     };
 
     const setFilter = (category) => {
-      // Update button states
       document.querySelectorAll('.filter-btn').forEach(btn => {
         if (btn.getAttribute('data-category') === category) {
           btn.classList.add('active', 'bg-obsidian', 'text-ivory', 'border-obsidian');
@@ -380,7 +345,6 @@
         }
       });
 
-      // Filter products
       if (category === 'ALL') {
         renderGrid(allProducts);
       } else {
@@ -389,7 +353,6 @@
       }
     };
 
-    // Initialize filter listeners
     document.querySelectorAll('.filter-btn').forEach(button => {
       button.addEventListener('click', () => {
         const category = button.getAttribute('data-category');
@@ -397,9 +360,7 @@
       });
     });
 
-    // Initial Render
     renderGrid(allProducts);
-
   </script>
 </body>
 </html>
